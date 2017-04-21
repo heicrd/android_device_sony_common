@@ -14,7 +14,6 @@
 
 # Common config
 include device/sony/common/CommonConfig.mk
-include device/sony/common/twrp.mk
 
 # Sony AOSP Project
 SONY_AOSP ?= true
@@ -26,8 +25,10 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/sony/common/releasetools
 
-# Kernel source
-TARGET_KERNEL_SOURCE := kernel/sony/msm
+# Default Kernel version
+ifeq ($(strip $(TARGET_KERNEL_SOURCE)),)
+TARGET_KERNEL_SOURCE := kernel/sony
+endif
 
 # Custom bootimage
 BOARD_CUSTOM_BOOTIMG := true

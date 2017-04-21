@@ -61,8 +61,8 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 #endif
 
     // Get properties
-    property_get("ro.sony.variant", model);
-    property_get("ro.omni.device", codename);
+    __system_property_get("ro.sony.variant", model);
+    __system_property_get("ro.cm.device", codename);
     // Set Properties
     property_set("ro.product.model", model);
     property_set("ro.product.device", codename);
