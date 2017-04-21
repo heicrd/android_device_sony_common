@@ -141,10 +141,6 @@ PRODUCT_PACKAGES += \
     libloc_api_v02 \
     libloc_ds_api
 
-# Charger
-PRODUCT_PACKAGES += \
-    omni_charger_res_images
-
 # AOSP Packages
 PRODUCT_PACKAGES += \
     Launcher3

@@ -37,7 +37,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
 
 # Default Kernel version
 ifeq ($(strip $(TARGET_KERNEL_SOURCE)),)
-TARGET_KERNEL_SOURCE := kernel/sony/msm
+TARGET_KERNEL_SOURCE := kernel/sony
 endif
 
 # Required for FMRadio
@@ -46,4 +46,3 @@ BOARD_DISABLE_FMRADIO_LIBJNI := true
 
 # Common config
 include $(COMMON_PATH)/CommonConfig.mk
-include $(COMMON_PATH)/twrp.mk
