@@ -21,10 +21,6 @@ COMMON_PATH := device/sony/common
 # Common from upstream
 $(call inherit-product, $(COMMON_PATH)/common.mk)
 
-# Variant linking script
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/releasetools/updater.sh:utilities/updater.sh
-
 # SELinux
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
