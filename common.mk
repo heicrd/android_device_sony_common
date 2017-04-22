@@ -160,6 +160,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ExtendedSettings
 
+PRODUCT_PACKAGES += \
+    su \
+    CMFileManager
+
 # APN list
 PRODUCT_COPY_FILES += \
     device/sample/etc/old-apns-conf.xml:system/etc/old-apns-conf.xml \
