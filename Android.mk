@@ -95,6 +95,9 @@ include $(display-hal)/Android.mk
 include $(call all-makefiles-under,$(audio-hal))
 include $(call all-makefiles-under,$(gps-hal))
 include $(call all-makefiles-under,$(media-hal))
+ifeq ($(USE_DEVICE_SPECIFIC_GPS),)
+include $(call all-makefiles-under,$(gps-hal))
+endif
 
 ifeq ($(BOARD_HAVE_BLUETOOTH_QCOM),true)
 ifneq ($(filter rhine,$(PRODUCT_PLATFORM)),)
