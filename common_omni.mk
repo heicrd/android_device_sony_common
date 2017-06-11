@@ -13,13 +13,20 @@
 # limitations under the License.
 
 # Sony AOSP Project
+ifneq ($(strip $(BOARD_USES_QCOM_HARDWARE)),true)
 SONY_AOSP ?= true
+endif
 
 # Common path
 COMMON_PATH := device/sony/common
 
 # Common from upstream
 $(call inherit-product, $(COMMON_PATH)/common.mk)
+
+# cryptfs hw
+TARGET_CRYPTFS_HW_PATH := $(COMMON_PATH)/cryptfs_hw
+PRODUCT_PACKAGES += \
+    libcryptfs_hw
 
 # SELinux
 PRODUCT_PROPERTY_OVERRIDES += \

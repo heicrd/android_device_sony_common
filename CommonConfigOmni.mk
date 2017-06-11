@@ -32,14 +32,6 @@ BOARD_USE_ENFORCING_SELINUX := false
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
 
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
-
-# Default Kernel version
-ifeq ($(strip $(TARGET_KERNEL_SOURCE)),)
-TARGET_KERNEL_SOURCE := kernel/sony
-endif
-
 # Required for FMRadio
 BOARD_HAVE_FM_RADIO := true
 BOARD_DISABLE_FMRADIO_LIBJNI := true
