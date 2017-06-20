@@ -24,7 +24,7 @@ COMMON_PATH := device/sony/common
 $(call inherit-product, $(COMMON_PATH)/common.mk)
 
 # cryptfs hw
-TARGET_CRYPTFS_HW_PATH := $(COMMON_PATH)/cryptfs_hw
+TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/cryptfs_hw
 PRODUCT_PACKAGES += \
     libcryptfs_hw
 
