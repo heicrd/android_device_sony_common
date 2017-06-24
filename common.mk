@@ -161,7 +161,6 @@ PRODUCT_PACKAGES += \
     ExtendedSettings
 
 PRODUCT_PACKAGES += \
-    su \
     CMFileManager
 
 # APN list
