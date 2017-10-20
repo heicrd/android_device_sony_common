@@ -77,24 +77,42 @@ endef
 MSM_VIDC_TARGET_LIST := msm8226 msm8916 msm8952 msm8974 msm8994 msm8996
 
 #List of targets that use master side content protection
-MASTER_SIDE_CP_TARGET_LIST := msm8996
+MASTER_SIDE_CP_TARGET_LIST := msm8996 msm8998
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 audio-hal := hardware/qcom/audio
-display-hal := hardware/qcom/display/msm8994
 gps-hal := hardware/qcom/gps/msm8994
+
+ifeq ($(TARGET_KERNEL_VERSION),3.10)
+display-hal := hardware/qcom/display/msm8994
 media-hal := hardware/qcom/media/msm8974
+endif
+
+ifeq ($(TARGET_KERNEL_VERSION),3.18)
+display-hal := hardware/qcom/display/msm8996
+media-hal := hardware/qcom/media/msm8996
+endif
+
+ifeq ($(TARGET_KERNEL_VERSION),4.4)
+display-hal := hardware/qcom/display/msm8998
+media-hal := hardware/qcom/media/msm8998
+endif
 
 ifneq ($(filter tone,$(PRODUCT_PLATFORM)),)
 display-hal := hardware/qcom/display/msm8996
 media-hal := hardware/qcom/media/msm8996
 endif
 
+ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),)
 include $(display-hal)/Android.mk
-include $(call all-makefiles-under,$(audio-hal))
-include $(call all-makefiles-under,$(gps-hal))
+endif
+ifeq ($(TARGET_QCOM_MEDIA_VARIANT),)
 include $(call all-makefiles-under,$(media-hal))
+endif
+ifeq ($(TARGET_QCOM_AUDIO_VARIANT),)
+include $(call all-makefiles-under,$(audio-hal))
+endif
 ifeq ($(USE_DEVICE_SPECIFIC_GPS),)
 include $(call all-makefiles-under,$(gps-hal))
 endif
